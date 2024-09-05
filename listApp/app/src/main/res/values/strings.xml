@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">listApp</string>
+    <string name="pic1">I am strong.</string>
+    <string name="pic2">I believe in myself.</string>
+    <string name="pic3">Each day is a new opportunity to grow and be a better version of myself.</string>
+    <string name="pic4">Every challenge in my life is an opportunity to learn from.</string>
+    <string name="pic5">I have so much to be grateful for.</string>
+    <string name="pic6">Good things are always coming into my life.</string>
+    <string name="pic7">New opportunities await me at every turn.</string>
+    <string name="pic8">I have the courage to follow my heart.</string>
+    <string name="pic9">Things will unfold at precisely the right time.</string>
+    <string name="pic10">I will be present in all the moments that this day brings.</string>
+</resources>
