@@ -1,8 +1,7 @@
-package com.example.woof.data
+package com.example.woof.domain
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.example.woof.R
 
 data class Dog(
     @DrawableRes val imageResourceId: Int,

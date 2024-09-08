@@ -33,7 +33,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.compose.AppTheme
 import com.example.woof.data.DataSource
-import com.example.woof.data.Dog
+import com.example.woof.domain.Dog
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.compose)
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -67,4 +71,17 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.hilt.android)
+    implementation(libs.glide)
+    ksp(libs.androidx.room.compiler)
+    ksp(libs.hilt.android.compiler)
+
+    implementation(libs.kotlinx.serialization)
+    implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.coil)
+    implementation(libs.bundles.retrofit)
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
 }

@@ -1,6 +1,7 @@
 package com.example.woof.data
 
 import com.example.woof.R
+import com.example.woof.domain.Dog
 
 class DataSource {
     fun dogList() : List<Dog> {

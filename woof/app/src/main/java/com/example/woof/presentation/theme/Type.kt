@@ -1,4 +1,4 @@
-package com.example.woof.ui.theme
+package com.example.woof.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.font.FontFamily
