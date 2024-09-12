@@ -13,8 +13,8 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
-import com.example.woof.presentation.theme.AppTypography
-import com.example.woof.presentation.theme.Shapes
+import com.example.woof.ui.theme.AppTypography
+import com.example.woof.ui.theme.Shapes
 
 private val lightScheme = lightColorScheme(
     primary = primaryLight,

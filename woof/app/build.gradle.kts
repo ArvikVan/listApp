@@ -84,4 +84,5 @@ dependencies {
     implementation(libs.bundles.retrofit)
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
+    implementation(libs.androidx.material.icons.extended)
 }

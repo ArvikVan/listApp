@@ -31,9 +31,11 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.example.compose.AppTheme
 import com.example.woof.data.DataSource
 import com.example.woof.domain.Dog
+import com.example.woof.presentation.navigation.MainNav
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,116 +43,25 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                Surface(modifier = Modifier.fillMaxSize()) {
-                    WoofApp()
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    MainContent(
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
             }
         }
     }
 }
 @Composable
-fun WoofApp() {
-    Scaffold (
-        topBar = {
-            WoofTopAppBar()
-        }
-    ){it ->
-        LazyColumn (contentPadding = it){
-            items(dogs()) {
-                DogItem(dog = it, modifier = Modifier.padding(dimensionResource(R.dimen.padding_small)))
-            }
-        }
-    }
-}
-
-fun dogs(): List<Dog> {
-    return DataSource().dogList()
-}
-
-@Composable
-fun DogIcon(
-    @DrawableRes dogIcon: Int,
+fun MainContent(
     modifier: Modifier = Modifier
 ) {
-    Image(
-        modifier = modifier
-            .size(dimensionResource(R.dimen.image_size))
-            .padding(dimensionResource(R.dimen.padding_small))
-            .clip(MaterialTheme.shapes.small),
-        contentScale = ContentScale.Crop,
-        painter = painterResource(dogIcon),
-
-        // Content Description is not needed here - image is decorative, and setting a null content
-        // description allows accessibility services to skip this element during navigation.
-
-        contentDescription = null
-    )
+    MainNav(navHostController = rememberNavController(), modifier = modifier)
 }
-
+@Preview(showBackground = true)
 @Composable
-fun DogInformation(
-    @StringRes dogName: Int,
-    dogAge: Int,
-    modifier: Modifier = Modifier
-) {
-    Column(modifier = modifier) {
-        Text(
-            text = stringResource(dogName),
-            style = MaterialTheme.typography.displaySmall,
-            modifier = Modifier.padding(top = dimensionResource(R.dimen.padding_small))
-        )
-        Text(
-            text = stringResource(R.string.years_old, dogAge),
-            style = MaterialTheme.typography.bodyLarge
-        )
-    }
-}
-
-@Composable
-fun DogItem(dog: Dog, modifier: Modifier) {
-    Card (modifier = modifier) {
-        Row(
-            modifier = modifier
-                .fillMaxWidth()
-                .padding(dimensionResource(id = R.dimen.padding_small))
-        ) {
-            DogIcon(dog.imageResourceId)
-            DogInformation(dog.name, dog.age)
-        }
-    }
-}
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun WoofTopAppBar(modifier: Modifier = Modifier) {
-    CenterAlignedTopAppBar(
-        title = {
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Image(
-                    modifier = Modifier
-                        .size(dimensionResource(id = R.dimen.image_size))
-                        .padding(dimensionResource(id = R.dimen.padding_small)),
-                    painter = painterResource(R.drawable.ic_woof_logo),
-
-                    contentDescription = null
-                )
-                Text(
-                    text = stringResource(R.string.app_name),
-                    style = MaterialTheme.typography.displayLarge
-                )
-            }
-        },
-        modifier = modifier
-    )
-}
-
-@Composable
-@Preview
-fun WoofPreview() {
-    AppTheme (
-        darkTheme = true
-    ) {
-        WoofApp()
+fun GreetingPreview() {
+    AppTheme {
+        MainContent()
     }
 }
